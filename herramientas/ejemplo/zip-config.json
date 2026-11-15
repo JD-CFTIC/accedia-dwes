@@ -1,0 +1,29 @@
+{
+  "nombre_zip": "EJEMPLO_saludos",
+  "paquete": "es.accedia.saludos",
+  "artifactId": "saludos",
+  "spring": "7.0.9",
+  "etapas": ["a", "b", "c"],
+  "proyectos": {
+    "1-una-opcion": "a",
+    "2-dos-opciones-error": "b",
+    "3-con-primary": "c"
+  },
+  "docs": {
+    "Saludo": {"*": "Contrato que cumple todo saludo: saludar a alguien por su nombre.\n *\n * Es una interfaz: dice QUÉ se puede hacer, no CÓMO."},
+    "SaludoFormal": {
+      "a": "Saludo formal. Con @Component, Spring guarda un objeto de esta clase.",
+      "b": "Saludo formal. Ahora hay DOS beans de tipo Saludo y Spring no sabe cuál entregar.",
+      "c": "Saludo formal, marcado como la opción POR DEFECTO con @Primary."
+    },
+    "SaludoCercano": {
+      "b": "Saludo cercano. Con @Component, Spring también guarda un objeto de esta clase."
+    },
+    "Aplicacion": {
+      "a": "Punto de partida. Arranca el contenedor y escribe un saludo.",
+      "b": "Punto de partida. FALLO ESPERADO: hay dos saludos y Spring no sabe cuál dar.",
+      "c": "Punto de partida. Con @Primary la ejecución ya no falla."
+    }
+  },
+  "leeme": "Proyectos de ejemplo.\n\nCada carpeta es un proyecto Maven independiente. Se abre en IntelliJ con File > Open,\neligiendo el fichero pom.xml de la carpeta.\n\n1-una-opcion           Una sola opción de saludo.\n2-dos-opciones-error   Dos opciones: Spring falla a propósito (NoUniqueBeanDefinitionException).\n3-con-primary          @Primary en SaludoFormal: ya no falla.\n"
+}
