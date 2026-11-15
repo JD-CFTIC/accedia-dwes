@@ -1,0 +1,10 @@
+unidad,sesion,fecha,horas,tema,material,estado_material,impartida,notas
+UD03,S01,2026-11-11,1,Cafetería,guía + zip; actividad gimnasio; solución + zip,Definitivo,Sí,Sin Spring: dependencia e inyección por constructor
+UD03,S02,2026-11-12,3,Entregas,guía + zip; actividad playlist; solución + zip,Definitivo,Sí,Contenedor; bean; @Component
+UD03,S03,2026-11-13,2,Pagos,guía + zip,Definitivo,Sí,@Primary y @Qualifier; la actividad pasa a S04
+UD03,S04,2026-11-16,2,Repaso de @Primary y @Qualifier,actividad duelo; solución + zip; reserva: actividad bots; solución + zip,Listo,No,Se repasa con la guía de S03; las dos actividades están subidas a Drive
+UD03,S05,2026-11-18,2,Scopes y ciclo de vida,,Pendiente,No,Propuesta: @Scope; @PostConstruct; @PreDestroy
+UD03,S06,2026-11-19,2,@Configuration y @Bean,,Pendiente,No,Propuesta
+UD03,S07,2026-11-20,2,@Value y propiedades,,Pendiente,No,Propuesta
+UD03,S08,2026-11-23,2,Capas: @Service y @Repository,,Pendiente,No,Propuesta
+UD03,S09,2026-11-25,2,Cliente en el navegador y repaso,,Pendiente,No,Propuesta; sesión colchón
