@@ -7,7 +7,8 @@ Uso:
 - RAIZ:        carpeta de trabajo; usa RAIZ/limpio/<etapa>/ (lo genera render.py) y escribe en RAIZ/zipproj/.
 - Con --classpath y --main, compila y ejecuta cada proyecto antes de empaquetar y enseña la salida.
 
-Cada proyecto es un proyecto Maven independiente, con su pom.xml. El comentario de cabecera de cada clase
+Cada proyecto es un proyecto Maven independiente, con su pom.xml. Si un proyecto necesita otra librería, se
+declara en config["extras"] ({"proyecto": [{"coordenadas": "grupo:artefacto:version", "comentario": "..."}]}). El comentario de cabecera de cada clase
 sale de config["docs"]: para cada clase, un texto por etapa (o «*» para todas). Si una clase no tiene texto
 en una etapa, se usa el de la última etapa anterior que lo tenga. Los textos no empiezan una línea con «@»
 (Javadoc lo interpretaría como etiqueta).
@@ -82,6 +83,12 @@ for proyecto, etapa in cfg["proyectos"].items():
     java = base / "src/main/java" / paquete_ruta
     java.mkdir(parents=True)
     pom = POM.replace("@@ARTIFACT@@", cfg["artifactId"]).replace("@@SPRING@@", cfg.get("spring", "7.0.9"))
+    extra = ""
+    for e in cfg.get("extras", {}).get(proyecto, []):
+        grupo, artefacto, version = e["coordenadas"].split(":")
+        extra += f"\n        <!-- {e['comentario']} -->\n        <dependency>\n            <groupId>{grupo}</groupId>\n"
+        extra += f"            <artifactId>{artefacto}</artifactId>\n            <version>{version}</version>\n        </dependency>\n"
+    pom = pom.replace("    </dependencies>", extra.rstrip("\n") + "\n    </dependencies>" if extra else "    </dependencies>")
     (base / "pom.xml").write_text(pom, encoding="utf-8")
     for f in sorted((raiz / "limpio" / etapa).glob("*.java")):
         lineas = f.read_text(encoding="utf-8").split("\n")
