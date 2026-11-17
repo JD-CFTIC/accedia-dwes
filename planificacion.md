@@ -22,14 +22,26 @@ Este documento recoge el plan de las sesiones y los criterios con los que se rep
 | S01 | mié 11 nov | 1 | Una clase necesita a otra | Dependencia e inyección por constructor | Cafetería | Gimnasio (sin Spring) | Impartida |
 | S02 | jue 12 nov | 3 | Montar a mano falla al compartir una pieza | Contenedor, bean, `@Component` | Entregas | Playlist | Impartida |
 | S03 | vie 13 nov | 2 | Hay dos piezas posibles para lo mismo | `@Primary`, `@Qualifier` | Pagos | Pasa a S04 | Impartida |
-| S04 | lun 16 nov | 2 | Repaso de `@Primary` y `@Qualifier` con la guía de S03, y práctica con una actividad relacionada | Ninguno: repaso | Duelo (Guerrero y Mago) | Duelo; de reserva, Bots (Recepcionista y Streamer) | Propuesta |
-| S05 | mié 18 nov | 2 | ¿Cuántos objetos crea Spring y cuánto viven? | `@Scope`: singleton y prototype; `@PostConstruct`, `@PreDestroy` | Contador de turnos con carga inicial | Por decidir | Propuesta |
+| S04 | lun 16 nov | 2 | Repaso de `@Primary` y `@Qualifier` con la guía de S03, y práctica con una actividad relacionada | Ninguno: repaso | Duelo (Guerrero y Mago) | Duelo; de reserva, Bots (Recepcionista y Streamer) | Impartida |
+| S05 | mié 18 nov | 2 | ¿Cuántos objetos crea Spring y cuánto viven? | `@Scope`: singleton y prototype; `@PostConstruct`, `@PreDestroy` | Dispensador de turnos con carga inicial | Baraja; de reserva, Carrito de la compra | Impartida |
 | S06 | jue 19 nov | 2 | Usar una clase que no es nuestra como bean | `@Configuration`, `@Bean` | Generador de códigos de pedido | Por decidir | Propuesta |
 | S07 | vie 20 nov | 2 | Cambiar un dato sin recompilar | `@Value` y propiedades | Tienda con IVA configurable | Por decidir | Propuesta |
 | S08 | lun 23 nov | 2 | Juntar todo en una aplicación | Capas: `@Service`, `@Repository` | Tienda completa | Por decidir | Propuesta |
 | S09 | mié 25 nov | 2 | Verla funcionando y asentar | Ninguno: cliente en el navegador y repaso | La misma tienda | Por decidir | Propuesta |
 
 Las horas suman 18 (6 de S01 a S03 y 12 de S04 a S09). Las sesiones S04 a S09 son una **propuesta pendiente de confirmar**.
+
+## Calendario hasta Navidad
+
+| Fechas | Qué se hace | Horas |
+|---|---|---|
+| 11 a 25 nov | UD03, sesiones S01 a S09 | 18 |
+| 26 nov a 4 dic | UD04 (seis sesiones) | 12 |
+| 7 y 8 dic | Festivos (lunes y martes) | 0 |
+| 9 a 11 dic | Repaso de la UD03 (miércoles, jueves y viernes) | 6 |
+| Semana del 14 dic | Examen de la UD03, solo hay 2 horas esa semana | 2 |
+
+La nota de la UD03 es un 80 % de examen (parte escrita y práctica) y un 20 % de test en la plataforma. La UD05 no empieza antes de Navidad.
 
 ## Criterios del plan
 
@@ -49,6 +61,8 @@ Las horas suman 18 (6 de S01 a S03 y 12 de S04 a S09). Las sesiones S04 a S09 so
 ## Pendiente de decidir
 
 - Confirmar el plan de las sesiones S04 a S09.
-- Qué actividad lleva cada una de S05 a S09.
-- Calendario de festivos y de evaluaciones.
+- Qué actividad lleva cada una de S06 a S09.
+- Fecha de cierre de la 1.ª evaluación.
+- Dónde se ve `@Autowired`, que no está en ninguna sesión del plan (propuesta: S08 o el repaso de diciembre).
+- Si S09 se queda como colchón o se usa para el cliente en el navegador.
 - Reparto del resto de unidades del módulo.
