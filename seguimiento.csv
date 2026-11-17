@@ -4,7 +4,7 @@ UD03,S02,2026-11-12,3,Entregas,guía + zip; actividad playlist; solución + zip,
 UD03,S03,2026-11-13,2,Pagos,guía + zip,Definitivo,Sí,@Primary y @Qualifier; la actividad pasa a S04
 UD03,S04,2026-11-16,2,Repaso de @Primary y @Qualifier,actividad duelo; solución + zip; reserva: actividad bots; solución + zip,Definitivo,Sí,Repaso con la guía de S03; las dos actividades están subidas a Drive
 UD03,S05,2026-11-18,2,Scopes y ciclo de vida,guía + zip; actividad baraja; solución + zip; reserva: actividad carrito; solución + zip,Definitivo,Sí,@Scope (singleton y prototype); @PostConstruct; @PreDestroy; todo el material está subido a Drive
-UD03,S06,2026-11-19,2,@Configuration y @Bean,,Pendiente,No,Propuesta
+UD03,S06,2026-11-19,2,@Configuration y @Bean,guía + zip; actividad dados; solución + zip; reserva: actividad reloj; solución + zip,Definitivo,Sí,@Configuration; @Bean; nombre del bean = nombre del método; @Qualifier con dos Random; todo el material está subido a Drive
 UD03,S07,2026-11-20,2,@Value y propiedades,,Pendiente,No,Propuesta
 UD03,S08,2026-11-23,2,Capas: @Service y @Repository,,Pendiente,No,Propuesta
 UD03,S09,2026-11-25,2,Cliente en el navegador y repaso,,Pendiente,No,Propuesta; sesión colchón

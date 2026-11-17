@@ -24,7 +24,7 @@ Este documento recoge el plan de las sesiones y los criterios con los que se rep
 | S03 | vie 13 nov | 2 | Hay dos piezas posibles para lo mismo | `@Primary`, `@Qualifier` | Pagos | Pasa a S04 | Impartida |
 | S04 | lun 16 nov | 2 | Repaso de `@Primary` y `@Qualifier` con la guía de S03, y práctica con una actividad relacionada | Ninguno: repaso | Duelo (Guerrero y Mago) | Duelo; de reserva, Bots (Recepcionista y Streamer) | Impartida |
 | S05 | mié 18 nov | 2 | ¿Cuántos objetos crea Spring y cuánto viven? | `@Scope`: singleton y prototype; `@PostConstruct`, `@PreDestroy` | Dispensador de turnos con carga inicial | Baraja; de reserva, Carrito de la compra | Impartida |
-| S06 | jue 19 nov | 2 | Usar una clase que no es nuestra como bean | `@Configuration`, `@Bean` | Generador de códigos de pedido | Por decidir | Propuesta |
+| S06 | jue 19 nov | 2 | Usar una clase que no es nuestra como bean | `@Configuration`, `@Bean` | Generador de códigos de pedido | Dados; de reserva, Reloj de fichaje | Impartida |
 | S07 | vie 20 nov | 2 | Cambiar un dato sin recompilar | `@Value` y propiedades | Tienda con IVA configurable | Por decidir | Propuesta |
 | S08 | lun 23 nov | 2 | Juntar todo en una aplicación | Capas: `@Service`, `@Repository` | Tienda completa | Por decidir | Propuesta |
 | S09 | mié 25 nov | 2 | Verla funcionando y asentar | Ninguno: cliente en el navegador y repaso | La misma tienda | Por decidir | Propuesta |
@@ -61,7 +61,7 @@ La nota de la UD03 es un 80 % de examen (parte escrita y práctica) y un 20 % de
 ## Pendiente de decidir
 
 - Confirmar el plan de las sesiones S04 a S09.
-- Qué actividad lleva cada una de S06 a S09.
+- Qué actividad lleva cada una de S07 a S09.
 - Fecha de cierre de la 1.ª evaluación.
 - Dónde se ve `@Autowired`, que no está en ninguna sesión del plan (propuesta: S08 o el repaso de diciembre).
 - Si S09 se queda como colchón o se usa para el cliente en el navegador.
