@@ -55,6 +55,9 @@ Lo que va antes de la primera sección es el preámbulo. La sección `cierre` ll
 | `@@code:etapa/Clase.java@@` | La clase completa, con sus comentarios |
 | `@@out:etapa@@` | La salida real de ejecutar la etapa |
 | `@@err:etapa@@` | Solo la línea `Exception` y la `Caused by`, sin rutas temporales. Falla si la etapa no da error |
+| `@@res:etapa/fichero@@` | El contenido de un fichero de recursos (por ejemplo un `.properties`) |
+
+**Ficheros de recursos.** Los ficheros que no son `.java` de `RAIZ/src/<etapa>/` (por ejemplo `tienda.properties`) se copian a `RAIZ/limpio/<etapa>/` y se ponen en el classpath al ejecutar la etapa. `zip.py` los copia a `src/main/resources` de cada proyecto. Una etapa sin fichero (para enseñar el error de fichero que falta) simplemente no lo lleva.
 
 **4. Generar el documento:**
 

@@ -7,6 +7,9 @@ Uso:
 - RAIZ:        carpeta de trabajo; usa RAIZ/limpio/<etapa>/ (lo genera render.py) y escribe en RAIZ/zipproj/.
 - Con --classpath y --main, compila y ejecuta cada proyecto antes de empaquetar y enseña la salida.
 
+Los ficheros que no son .java de RAIZ/limpio/<etapa>/ (por ejemplo un .properties) son recursos: van a src/main/resources y
+se ponen en el classpath al ejecutar.
+
 Cada proyecto es un proyecto Maven independiente, con su pom.xml. Si un proyecto necesita otra librería, se
 declara en config["extras"] ({"proyecto": [{"coordenadas": "grupo:artefacto:version", "comentario": "..."}]}). El comentario de cabecera de cada clase
 sale de config["docs"]: para cada clase, un texto por etapa (o «*» para todas). Si una clase no tiene texto
@@ -101,11 +104,18 @@ for proyecto, etapa in cfg["proyectos"].items():
                 raise SystemExit(f"Una línea de {f.stem} empieza por @: {l!r}")
         bloque = ["/**", " * " + texto, " */"]
         (java / f.name).write_text("\n".join(lineas[:i] + bloque + lineas[i:]), encoding="utf-8")
+    recursos = [f for f in (raiz / "limpio" / etapa).iterdir() if f.is_file() and f.suffix != ".java"]
+    if recursos:
+        (base / "src/main/resources").mkdir(parents=True)
+        for f in recursos:
+            shutil.copy(f, base / "src/main/resources" / f.name)
     if cp:
         with tempfile.TemporaryDirectory() as tmp:
             fuentes = [str(p) for p in java.glob("*.java")]
             subprocess.run(["javac", "-encoding", "UTF-8", "-parameters", "-cp", cp, "-d", tmp, *fuentes],
                            check=True, capture_output=True)
+            for f in (base / "src/main/resources").glob("*"):
+                shutil.copy(f, tmp)
             r = subprocess.run(["java", "-Dstdout.encoding=UTF-8", "-Dstderr.encoding=UTF-8",
                                 "-cp", f"{tmp}:{cp}", principal], capture_output=True, text=True)
         lineas = [l for l in (r.stdout + r.stderr).splitlines()

@@ -19,11 +19,15 @@ Marcadores de la plantilla:
 - @@code:etapa/Clase.java@@         la clase completa
 - @@out:etapa@@                     salida real de ejecutar la etapa
 - @@err:etapa@@                     solo la línea Exception y la línea Caused by, sin rutas temporales
+- @@res:etapa/fichero@@             un fichero que no es .java (por ejemplo un .properties), tal cual, en un bloque de código
+
+Los ficheros que no son .java de src/<etapa>/ son recursos: se copian a limpio/<etapa>/ y se ponen en el classpath al ejecutar.
 
 También escribe las clases limpias (sin marcadores) en RAIZ/limpio/<etapa>/, que usa zip.py.
 Los fragmentos (frag y parcial) salen sin comentarios de línea; la clase completa (code) los conserva.
 """
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -80,11 +84,17 @@ def pre(lineas):
     return "<pre>\n" + "\n".join(lineas) + "\n</pre>"
 
 
+def recursos(directorio):
+    return [p for p in Path(directorio).iterdir() if p.is_file() and p.suffix != ".java"]
+
+
 def ejecutar(directorio):
     with tempfile.TemporaryDirectory() as tmp:
         fuentes = [str(p) for p in Path(directorio).glob("*.java")]
         subprocess.run(["javac", "-encoding", "UTF-8", "-parameters", "-cp", cp, "-d", tmp, *fuentes],
                        check=True, capture_output=True)
+        for f in recursos(directorio):
+            shutil.copy(f, tmp)
         r = subprocess.run(["java", "-Dfile.encoding=UTF-8", "-Dstdout.encoding=UTF-8",
                             "-Dstderr.encoding=UTF-8", "-cp", f"{tmp}:{cp}", principal],
                            capture_output=True, text=True)
@@ -103,6 +113,8 @@ for etapa in sorted(p.name for p in src.iterdir() if p.is_dir()):
     for f in sorted((src / etapa).glob("*.java")):
         (destino / f.name).write_text(componer(f"{etapa}/{f.name}", todos(f"{etapa}/{f.name}")),
                                       encoding="utf-8")
+    for f in recursos(src / etapa):
+        shutil.copy(f, destino)
 
 
 def salida_err(etapa):
@@ -121,6 +133,8 @@ texto = re.sub(r"@@parcial:([^:@]+):([^@]*)@@",
                lambda m: bloque(sin_comentarios(componer(m.group(1), [n for n in m.group(2).split(",") if n]))), texto)
 texto = re.sub(r"@@code:([^:@]+)@@",
                lambda m: bloque(componer(m.group(1), todos(m.group(1)))), texto)
+texto = re.sub(r"@@res:([^:@]+)@@",
+               lambda m: "```" + Path(m.group(1)).suffix[1:] + "\n" + (src / m.group(1)).read_text(encoding="utf-8").rstrip("\n") + "\n```", texto)
 texto = re.sub(r"@@out:([^@]+)@@", lambda m: pre(ejecutar(limpio / m.group(1))), texto)
 texto = re.sub(r"@@err:([^@]+)@@", lambda m: salida_err(m.group(1)), texto)
 assert "@@" not in texto, "Quedan marcadores sin sustituir"
