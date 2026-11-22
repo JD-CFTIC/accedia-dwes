@@ -4,6 +4,11 @@ Aquí se anota cada reordenación o decisión que cambia el plan, con su motivo.
 
 ## 2026-11-22
 
+### Contextos de S08 y S09: el torneo y las bicicletas
+- **Qué cambia:** la guía de S08 usa **el torneo** y la actividad integradora de S09 usa **las bicicletas**, en lugar de la tienda y de las matrículas propuestas antes. La semilla del generador vale 42 para pruebas y se deja en blanco para uso real. S09 no lleva actividad de reserva.
+- **Motivo:** la tienda repetía el contexto de sesiones anteriores. En S09 el alumno tarda unos 75 a 100 minutos en las bicicletas, y los proyectos con error del zip sirven para «encuentra el fallo» en pantalla si sobra tiempo.
+- **Material:** `UD03_S08_01` (guía y zip) y `UD03_S09_01` y `UD03_S09_02` (enunciado, solución y zip), en Drive.
+
 ### S08 y S09 pasan a ser repaso integrador; `@Autowired`, `@Service` y `@Repository` se ven en UD04
 - **Qué cambia:** S08 es una guía que explica el profesor, sin concepto nuevo, y repasa de forma explícita S01 a S07 con una tienda completa. S09 es la actividad integradora, con «encuentra el fallo» de reserva. `@Autowired`, `@Service` y `@Repository` se dejan para la primera sesión de UD04. UD03 se alarga dos sesiones: S10 (jue 26 nov) es el cliente en el navegador y S11 (vie 27 nov) un simulacro de examen. UD04 empieza el lunes 30 nov, con cuatro sesiones antes del 4 dic.
 - **Motivo:** en la práctica esas anotaciones se usan dentro de una aplicación Spring Boot, y allí se entienden con controlador, servicio y repositorio delante. UD03 queda como contenedor y beans, y el examen solo evalúa lo practicado.

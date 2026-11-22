@@ -25,10 +25,10 @@ Este documento recoge el plan de las sesiones y los criterios con los que se rep
 | S04 | lun 16 nov | 2 | Repaso de `@Primary` y `@Qualifier` con la guía de S03, y práctica con una actividad relacionada | Ninguno: repaso | Duelo (Guerrero y Mago) | Duelo; de reserva, Bots (Recepcionista y Streamer) | Impartida |
 | S05 | mié 18 nov | 2 | ¿Cuántos objetos crea Spring y cuánto viven? | `@Scope`: singleton y prototype; `@PostConstruct`, `@PreDestroy` | Dispensador de turnos con carga inicial | Baraja; de reserva, Carrito de la compra | Impartida |
 | S06 | jue 19 nov | 2 | Usar una clase que no es nuestra como bean | `@Configuration`, `@Bean` | Generador de códigos de pedido | Dados; de reserva, Reloj de fichaje | Impartida |
-| S07 | vie 20 nov | 2 | Cambiar un dato sin recompilar | `@Value` y propiedades | Tienda con IVA configurable | Biblioteca; de reserva, Parking | Material preparado |
-| S08 | lun 23 nov | 2 | Juntar todo en una aplicación | Ninguno: repaso integrador de S01 a S07, explicado por el profesor | Tienda completa | Ninguna: la actividad pasa a S09 | Propuesta |
-| S09 | mié 25 nov | 2 | Aplicar todo lo visto sin que nadie diga qué anotación usar | Ninguno: actividad integradora con la tabla «requisito → concepto» | Un contexto nuevo | Integradora; de reserva, «encuentra el fallo» | Propuesta |
-| S10 | jue 26 nov | 2 | Verla funcionando | Ninguno: cliente en el navegador | La tienda de S08 | Ninguna | Propuesta |
+| S07 | vie 20 nov | 2 | Cambiar un dato sin recompilar | `@Value` y propiedades | Tienda con IVA configurable | Biblioteca; de reserva, Parking | Impartida |
+| S08 | lun 23 nov | 2 | Juntar todo en una aplicación | Ninguno: repaso integrador de S01 a S07, explicado por el profesor | El torneo (equipos, sorteo con semilla, dos formas de emparejar) | Ninguna: la actividad pasa a S09 | Material preparado |
+| S09 | mié 25 nov | 2 | Aplicar todo lo visto sin que nadie diga qué anotación usar | Ninguno: actividad integradora con la tabla «requisito → concepto» | Las bicicletas (estación con avisos por app y SMS, alquileres independientes) | Integradora; sin reserva: sobran los proyectos con error del zip | Material preparado |
+| S10 | jue 26 nov | 2 | Verla funcionando | Ninguno: cliente en el navegador | El torneo de S08 o las bicicletas de S09 | Ninguna | Propuesta |
 | S11 | vie 27 nov | 2 | Comprobar qué domina cada uno | Ninguno: simulacro de examen de UD03 | Prueba escrita y práctica | Ninguna | Propuesta |
 
 Las horas suman 22 (6 de S01 a S03 y 16 de S04 a S11): son 4 más que las 18 de la programación, que se compensan con una UD04 más corta antes de Navidad. Las sesiones S04 a S11 son una **propuesta pendiente de confirmar**.
@@ -56,7 +56,7 @@ La nota de la UD03 es un 80 % de examen (parte escrita y práctica) y un 20 % de
 
 ## Ideas para más adelante
 
-- **Cliente en el navegador (S10):** una página con JavaScript que pide datos a la aplicación Spring, con un servidor HTTP que arranca como bean (el que trae Java, sin Spring Boot). Ya está probado con la tienda de pagos.
+- **Cliente en el navegador (S10):** una página con JavaScript que pide datos a la aplicación Spring, con un servidor HTTP que arranca como bean (el que trae Java, sin Spring Boot). Ya está probado con la tienda de pagos; falta decidir si se monta sobre el torneo o sobre las bicicletas.
 - **Spring Boot:** vista en el navegador con Thymeleaf, y que los alumnos escriban un cliente para la aplicación de un compañero.
 - **Un juego en consola** con las piezas de Spring Core (por ejemplo, una arena donde cada personaje elige su ataque con `@Qualifier`).
 
@@ -65,7 +65,6 @@ La nota de la UD03 es un 80 % de examen (parte escrita y práctica) y un 20 % de
 - Confirmar el plan de las sesiones S04 a S09.
 - Qué actividad lleva cada una de S07 a S09.
 - Fecha de cierre de la 1.ª evaluación.
-- Contexto de la actividad integradora de S09 (propuesta: matrículas de un centro de formación).
 - `@Autowired`, `@Service` y `@Repository` se ven en la primera sesión de UD04 (lun 30 nov). La programación didáctica los lista en UD03: hay que corregirla.
 - Si S11 es simulacro de examen o mini proyecto libre en parejas (propuesta: simulacro).
 - Reparto del resto de unidades del módulo.
