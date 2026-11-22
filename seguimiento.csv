@@ -6,5 +6,7 @@ UD03,S04,2026-11-16,2,Repaso de @Primary y @Qualifier,actividad duelo; solución
 UD03,S05,2026-11-18,2,Scopes y ciclo de vida,guía + zip; actividad baraja; solución + zip; reserva: actividad carrito; solución + zip,Definitivo,Sí,@Scope (singleton y prototype); @PostConstruct; @PreDestroy; todo el material está subido a Drive
 UD03,S06,2026-11-19,2,@Configuration y @Bean,guía + zip; actividad dados; solución + zip; reserva: actividad reloj; solución + zip,Definitivo,Sí,@Configuration; @Bean; nombre del bean = nombre del método; @Qualifier con dos Random; todo el material está subido a Drive
 UD03,S07,2026-11-20,2,@Value y propiedades,guía + zip; actividad biblioteca; solución + zip; reserva: actividad parking; solución + zip,Definitivo,No,@PropertySource; @Value; valor por defecto; errores de clave que falta y de fichero; todo el material está subido a Drive
-UD03,S08,2026-11-23,2,Capas: @Service y @Repository,,Pendiente,No,Propuesta
-UD03,S09,2026-11-25,2,Cliente en el navegador y repaso,,Pendiente,No,Propuesta; sesión colchón
+UD03,S08,2026-11-23,2,Repaso integrador de S01 a S07,,Pendiente,No,Propuesta; guía explicada por el profesor con repaso explícito; sin concepto nuevo
+UD03,S09,2026-11-25,2,Actividad integradora,,Pendiente,No,Propuesta; sesión colchón; reserva: encuentra el fallo
+UD03,S10,2026-11-26,2,Cliente en el navegador,,Pendiente,No,Propuesta; sin concepto nuevo
+UD03,S11,2026-11-27,2,Simulacro de examen de UD03,,Pendiente,No,Propuesta; sin concepto nuevo

@@ -15,7 +15,7 @@ Este documento recoge el plan de las sesiones y los criterios con los que se rep
 
 ## UD03. Spring Core
 
-**Horas:** 18. **Idea que lo une todo:** quién crea los objetos y quién los conecta. Spring Framework (sin Spring Boot) antes de Spring Boot.
+**Horas:** 18 en la programación; 22 en el plan (S01 a S11). **Idea que lo une todo:** quién crea los objetos y quién los conecta. Spring Framework (sin Spring Boot) antes de Spring Boot.
 
 | Sesión | Fecha | Horas | Problema | Concepto nuevo | Mini aplicación | Actividad | Estado del plan |
 |---|---|---|---|---|---|---|---|
@@ -26,17 +26,19 @@ Este documento recoge el plan de las sesiones y los criterios con los que se rep
 | S05 | mié 18 nov | 2 | ¿Cuántos objetos crea Spring y cuánto viven? | `@Scope`: singleton y prototype; `@PostConstruct`, `@PreDestroy` | Dispensador de turnos con carga inicial | Baraja; de reserva, Carrito de la compra | Impartida |
 | S06 | jue 19 nov | 2 | Usar una clase que no es nuestra como bean | `@Configuration`, `@Bean` | Generador de códigos de pedido | Dados; de reserva, Reloj de fichaje | Impartida |
 | S07 | vie 20 nov | 2 | Cambiar un dato sin recompilar | `@Value` y propiedades | Tienda con IVA configurable | Biblioteca; de reserva, Parking | Material preparado |
-| S08 | lun 23 nov | 2 | Juntar todo en una aplicación | Capas: `@Service`, `@Repository` | Tienda completa | Por decidir | Propuesta |
-| S09 | mié 25 nov | 2 | Verla funcionando y asentar | Ninguno: cliente en el navegador y repaso | La misma tienda | Por decidir | Propuesta |
+| S08 | lun 23 nov | 2 | Juntar todo en una aplicación | Ninguno: repaso integrador de S01 a S07, explicado por el profesor | Tienda completa | Ninguna: la actividad pasa a S09 | Propuesta |
+| S09 | mié 25 nov | 2 | Aplicar todo lo visto sin que nadie diga qué anotación usar | Ninguno: actividad integradora con la tabla «requisito → concepto» | Un contexto nuevo | Integradora; de reserva, «encuentra el fallo» | Propuesta |
+| S10 | jue 26 nov | 2 | Verla funcionando | Ninguno: cliente en el navegador | La tienda de S08 | Ninguna | Propuesta |
+| S11 | vie 27 nov | 2 | Comprobar qué domina cada uno | Ninguno: simulacro de examen de UD03 | Prueba escrita y práctica | Ninguna | Propuesta |
 
-Las horas suman 18 (6 de S01 a S03 y 12 de S04 a S09). Las sesiones S04 a S09 son una **propuesta pendiente de confirmar**.
+Las horas suman 22 (6 de S01 a S03 y 16 de S04 a S11): son 4 más que las 18 de la programación, que se compensan con una UD04 más corta antes de Navidad. Las sesiones S04 a S11 son una **propuesta pendiente de confirmar**.
 
 ## Calendario hasta Navidad
 
 | Fechas | Qué se hace | Horas |
 |---|---|---|
-| 11 a 25 nov | UD03, sesiones S01 a S09 | 18 |
-| 26 nov a 4 dic | UD04 (seis sesiones) | 12 |
+| 11 a 27 nov | UD03, sesiones S01 a S11 | 22 |
+| 30 nov a 4 dic | UD04 (cuatro sesiones: lun 30, mié 2, jue 3, vie 4) | 8 |
 | 7 y 8 dic | Festivos (lunes y martes) | 0 |
 | 9 a 11 dic | Repaso de la UD03 (miércoles, jueves y viernes) | 6 |
 | Semana del 14 dic | Examen de la UD03, solo hay 2 horas esa semana | 2 |
@@ -54,7 +56,7 @@ La nota de la UD03 es un 80 % de examen (parte escrita y práctica) y un 20 % de
 
 ## Ideas para más adelante
 
-- **Cliente en el navegador (S09):** una página con JavaScript que pide datos a la aplicación Spring, con un servidor HTTP que arranca como bean (el que trae Java, sin Spring Boot). Ya está probado con la tienda de pagos.
+- **Cliente en el navegador (S10):** una página con JavaScript que pide datos a la aplicación Spring, con un servidor HTTP que arranca como bean (el que trae Java, sin Spring Boot). Ya está probado con la tienda de pagos.
 - **Spring Boot:** vista en el navegador con Thymeleaf, y que los alumnos escriban un cliente para la aplicación de un compañero.
 - **Un juego en consola** con las piezas de Spring Core (por ejemplo, una arena donde cada personaje elige su ataque con `@Qualifier`).
 
@@ -63,6 +65,7 @@ La nota de la UD03 es un 80 % de examen (parte escrita y práctica) y un 20 % de
 - Confirmar el plan de las sesiones S04 a S09.
 - Qué actividad lleva cada una de S07 a S09.
 - Fecha de cierre de la 1.ª evaluación.
-- Dónde se ve `@Autowired`, que no está en ninguna sesión del plan (propuesta: S08 o el repaso de diciembre).
-- Si S09 se queda como colchón o se usa para el cliente en el navegador.
+- Contexto de la actividad integradora de S09 (propuesta: matrículas de un centro de formación).
+- `@Autowired`, `@Service` y `@Repository` se ven en la primera sesión de UD04 (lun 30 nov). La programación didáctica los lista en UD03: hay que corregirla.
+- Si S11 es simulacro de examen o mini proyecto libre en parejas (propuesta: simulacro).
 - Reparto del resto de unidades del módulo.

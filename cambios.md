@@ -2,6 +2,13 @@
 
 Aquí se anota cada reordenación o decisión que cambia el plan, con su motivo. El plan vigente está en `planificacion.md` y el estado de cada sesión, en `seguimiento.csv`. Las entradas van de la más reciente a la más antigua.
 
+## 2026-11-22
+
+### S08 y S09 pasan a ser repaso integrador; `@Autowired`, `@Service` y `@Repository` se ven en UD04
+- **Qué cambia:** S08 es una guía que explica el profesor, sin concepto nuevo, y repasa de forma explícita S01 a S07 con una tienda completa. S09 es la actividad integradora, con «encuentra el fallo» de reserva. `@Autowired`, `@Service` y `@Repository` se dejan para la primera sesión de UD04. UD03 se alarga dos sesiones: S10 (jue 26 nov) es el cliente en el navegador y S11 (vie 27 nov) un simulacro de examen. UD04 empieza el lunes 30 nov, con cuatro sesiones antes del 4 dic.
+- **Motivo:** en la práctica esas anotaciones se usan dentro de una aplicación Spring Boot, y allí se entienden con controlador, servicio y repositorio delante. UD03 queda como contenedor y beans, y el examen solo evalúa lo practicado.
+- **Pendiente:** la programación didáctica lista esas tres anotaciones en los contenidos de UD03; hay que corregirla.
+
 ## 2026-11-15
 
 ### La actividad de S04 pasa a ser el duelo, con los bots de reserva
