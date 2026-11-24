@@ -2,6 +2,13 @@
 
 Aquí se anota cada reordenación o decisión que cambia el plan, con su motivo. El plan vigente está en `planificacion.md` y el estado de cada sesión, en `seguimiento.csv`. Las entradas van de la más reciente a la más antigua.
 
+## 2026-11-24
+
+### S08 impartida resultó larga; S09 se pule con puntos de control
+- **Qué cambia:** la guía de S08 se regenera siguiendo las reglas de redacción (cada elemento de Java o Spring se explica al aparecer, «De momento, así queda…», clase completa y «En este paso cambian:» en cada paso). El enunciado de S09 fija cómo se elige la bicicleta, aclara quién recibe el `Alquiler` y marca tres puntos de control con su salida. La solución de S09 se reordena en esos tres puntos de control, que se ejecutan.
+- **Motivo:** la clase de S08 fue demasiado larga y el profesor se perdió; faltaban explicaciones de Java (`Collections.shuffle`, bucles, interfaz) y la salida de S09 dependía de cómo se eligiera la bicicleta.
+- **Herramientas:** `render.py` comprueba la estructura de los pasos de una guía (opción `--sin-comprobar` para saltarla).
+
 ## 2026-11-22
 
 ### Contextos de S08 y S09: el torneo y las bicicletas
