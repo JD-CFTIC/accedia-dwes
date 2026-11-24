@@ -67,6 +67,8 @@ python3 -I render.py plantilla.tpl.md RAIZ classpath.txt salida.md --main es.acc
 
 También escribe las clases limpias, sin marcadores, en `RAIZ/limpio/<etapa>/`.
 
+**Comprobación de la estructura.** Al generar, `render.py` revisa cada «Paso N» que lleve trozos de código (`@@frag@@`): justo después de cada trozo tiene que haber un `@@parcial@@` o un `@@code@@` de esa clase; al final del paso tiene que estar la clase completa (`@@code@@`) de cada clase tocada; y tiene que aparecer la línea `**En este paso cambian:**`. Si algo falla, escribe el documento igualmente, lista los fallos y termina con error. Se salta con `--sin-comprobar`.
+
 **5. Generar el zip.** Se escribe una configuración, copiando `ejemplo/zip-config.json`: nombre del zip, paquete, proyectos con su etapa y el comentario de cabecera de cada clase en cada etapa. Después:
 
 ```

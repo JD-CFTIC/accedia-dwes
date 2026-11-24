@@ -48,7 +48,9 @@ Hay tres tipos de material:
 
 - Las guías se comparten con los alumnos, así que se redactan **para ellos**: primera persona del plural y futuro («construiremos», «escribimos»). No se usa lenguaje dirigido al profesor.
 - Se dice **«escribimos»**, nunca «pega». No se usan frases como «sin copiar».
+- **Todo elemento de Java o de Spring se explica la primera vez que aparece:** qué hace y para qué lo usamos (un método como `Collections.shuffle`, un bucle, una interfaz, un operador). La explicación va en el propio paso, justo después del código, y no en un cuadro aparte al principio. Nada se da por sabido.
 - El código se **construye por partes:** primero la explicación, luego el cuadro de código, luego **«De momento, así queda la clase X»**.
+- **Cada paso** empieza con una línea **«En este paso cambian:»** con las clases que se tocan, y termina con la **clase completa** de cada una de ellas. Ningún trozo de código queda sin su «De momento, así queda…». `render.py` lo comprueba.
 - El código intermedio va **sin comentarios**. Los comentarios (mínimos) solo aparecen cuando se entrega la clase completa.
 - Lo que genera el IDE (constructores, getters y setters, `main`) se genera con el IDE, explicando **para qué sirve** antes de generarlo.
 - Cuando el IDE marque algo en rojo que es normal en ese momento, se avisa **en la propia guía** y se explica cómo arreglarlo.

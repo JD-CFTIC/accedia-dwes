@@ -42,6 +42,7 @@ Todos los pasos siguen el mismo patrón, para que el alumno sepa qué esperar:
 - **Un cuadro de código tras una explicación**, nunca antes. El refuerzo va justo después.
 - El código se construye por trozos y, tras cada trozo, se enseña el estado: **«De momento, así queda la clase X»**.
 - El código **intermedio no lleva comentarios**; la clase completa final lleva los mínimos.
+- **Cada elemento de Java o de Spring se explica donde aparece por primera vez**, en una o dos viñetas con negrita en el elemento: qué hace y para qué lo usamos. Si es difícil de leer (un doble bucle), se añade una **tabla** con un ejemplo real.
 - Cuando se usa el IDE, se dice **el atajo exacto** y **qué se selecciona**: `Alt+Insert`, `Constructor`, seleccionando `titulo` y `segundos`.
 - **Avisos de rojo normal** en un recuadro de cita, con la solución:
 

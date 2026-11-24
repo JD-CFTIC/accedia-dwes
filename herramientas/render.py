@@ -1,7 +1,7 @@
 """Genera un documento (guía, actividad o solución) a partir de una plantilla, con código y salidas reales.
 
 Uso:
-    python3 -I render.py PLANTILLA RAIZ CLASSPATH SALIDA --main es.accedia.paquete.Aplicacion
+    python3 -I render.py PLANTILLA RAIZ CLASSPATH SALIDA --main es.accedia.paquete.Aplicacion [--sin-comprobar]
 
 - PLANTILLA: fichero .md con marcadores @@...@@ (ver más abajo).
 - RAIZ:      carpeta de trabajo; debe contener src/<etapa>/<Clase>.java.
@@ -23,6 +23,14 @@ Marcadores de la plantilla:
 
 Los ficheros que no son .java de src/<etapa>/ son recursos: se copian a limpio/<etapa>/ y se ponen en el classpath al ejecutar.
 
+Comprobación de la estructura de los pasos (se salta con --sin-comprobar). En cada «Paso N» (títulos que
+empiezan por «## Paso» o «### Paso») que tenga trozos de código (@@frag@@):
+- justo después de cada @@frag@@ tiene que haber un @@parcial@@ o un @@code@@ de esa misma clase
+  («De momento, así queda…»);
+- al final del paso tiene que aparecer @@code@@ de cada clase que se ha tocado (la clase completa);
+- tiene que aparecer la línea «**En este paso cambian:**» con las clases que se tocan.
+Si algo falla, escribe la salida igualmente, lista los fallos y termina con error.
+
 También escribe las clases limpias (sin marcadores) en RAIZ/limpio/<etapa>/, que usa zip.py.
 Los fragmentos (frag y parcial) salen sin comentarios de línea; la clase completa (code) los conserva.
 """
@@ -33,10 +41,12 @@ import sys
 import tempfile
 from pathlib import Path
 
-if len(sys.argv) != 7 or sys.argv[5] != "--main":
+argumentos = [a for a in sys.argv[1:] if a != "--sin-comprobar"]
+comprobar = "--sin-comprobar" not in sys.argv
+if len(argumentos) != 6 or argumentos[4] != "--main":
     raise SystemExit(__doc__)
-plantilla, raiz, cpfile, salida = (Path(a) for a in sys.argv[1:5])
-principal = sys.argv[6]
+plantilla, raiz, cpfile, salida = (Path(a) for a in argumentos[0:4])
+principal = argumentos[5]
 cp = cpfile.read_text(encoding="utf-8").strip()
 src = raiz / "src"
 
@@ -126,7 +136,36 @@ def salida_err(etapa):
     return pre([limpiar_ruta(l) for l in ex + ca])
 
 
+
+def comprobar_pasos(texto):
+    """Devuelve la lista de fallos de estructura en los pasos de la plantilla."""
+    fallos = []
+    partes = re.split(r"(?m)^(#{2,3} Paso .*)$", texto)
+    for i in range(1, len(partes), 2):
+        titulo, cuerpo = partes[i], partes[i + 1]
+        marcas = re.findall(r"@@(frag|parcial|code):([^:@]+)(?::[^@]*)?@@", cuerpo)
+        if not any(tipo == "frag" for tipo, _ in marcas):
+            continue
+        clases = []
+        for tipo, ruta in marcas:
+            if ruta not in clases and tipo == "frag":
+                clases.append(ruta)
+        for ruta in clases:
+            nombre = ruta.split("/")[-1]
+            if ("code", ruta) not in marcas:
+                fallos.append(f"{titulo}: falta @@code:{ruta}@@ (la clase completa de {nombre})")
+        for n, (tipo, ruta) in enumerate(marcas):
+            if tipo != "frag":
+                continue
+            sigue = marcas[n + 1] if n + 1 < len(marcas) else None
+            if sigue is None or sigue[0] == "frag" or sigue[1] != ruta:
+                fallos.append(f"{titulo}: tras un trozo de {ruta.split('/')[-1]} falta su «De momento, así queda» (@@parcial@@ o @@code@@ justo después)")
+        if "En este paso cambian" not in cuerpo:
+            fallos.append(f"{titulo}: falta la línea «**En este paso cambian:**»")
+    return fallos
+
 texto = plantilla.read_text(encoding="utf-8")
+fallos = comprobar_pasos(texto) if comprobar else []
 texto = re.sub(r"@@frag:([^:@]+):([^@]+)@@",
                lambda m: bloque(sin_comentarios("\n\n".join(analizar(m.group(1))[1][n] for n in m.group(2).split(",")))), texto)
 texto = re.sub(r"@@parcial:([^:@]+):([^@]*)@@",
@@ -140,3 +179,8 @@ texto = re.sub(r"@@err:([^@]+)@@", lambda m: salida_err(m.group(1)), texto)
 assert "@@" not in texto, "Quedan marcadores sin sustituir"
 salida.write_text(texto, encoding="utf-8")
 print("OK", salida, len(texto), "caracteres")
+if fallos:
+    print("\nCOMPROBACIÓN: la estructura de los pasos no cumple las reglas:")
+    for f in fallos:
+        print("  -", f)
+    raise SystemExit(1)
