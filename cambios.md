@@ -2,6 +2,15 @@
 
 Aquí se anota cada reordenación o decisión que cambia el plan, con su motivo. El plan vigente está en `planificacion.md` y el estado de cada sesión, en `seguimiento.csv`. Las entradas van de la más reciente a la más antigua.
 
+## 2026-11-25
+
+### S09 no se terminó en clase; S10 pasa a ser terminar S09 y el cliente en el navegador
+- **Qué cambia:** S09 se imparte, pero los alumnos no terminan la actividad de las bicicletas (unos casi acaban y otros van cerca). S10 se reparte así: 40 minutos para terminarla, 10 de puesta en común y 50 en los que el profesor construye el cliente web (HTML, CSS y JavaScript) sobre el proyecto de las bicicletas. S11 sigue siendo el simulacro de examen.
+- **Motivo:** la actividad integradora lleva más de lo previsto y es mejor que la terminen antes de seguir.
+- **Material:** `UD03_S10_01` (guía de 6 pasos y zip con 5 puntos de control) y `UD03_S10_02` (guion del profesor, solo para él), en Drive. El guion reparte los 50 minutos e incluye qué recortar y una tabla de fallos con los mensajes reales. El servidor es el `HttpServer` que trae Java, como bean de Spring; no hay persistencia.
+- **Herramientas:** `zip.py` coloca los `.html`, `.css` y `.js` de una web en `static/` dentro del proyecto.
+- **Dónde va el material:** los materiales de cada sesión se guardan en Drive, no en el repositorio.
+
 ## 2026-11-24
 
 ### S08 impartida resultó larga; S09 se pule con puntos de control
