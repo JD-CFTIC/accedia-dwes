@@ -8,7 +8,7 @@ Uso:
 - Con --classpath y --main, compila y ejecuta cada proyecto antes de empaquetar y enseña la salida.
 
 Los ficheros que no son .java de RAIZ/limpio/<etapa>/ (por ejemplo un .properties) son recursos: van a src/main/resources y
-se ponen en el classpath al ejecutar.
+se ponen en el classpath al ejecutar. Los .html van a static/, los .css a static/css y los .js a static/js.
 
 Cada proyecto es un proyecto Maven independiente, con su pom.xml. Si un proyecto necesita otra librería, se
 declara en config["extras"] ({"proyecto": [{"coordenadas": "grupo:artefacto:version", "comentario": "..."}]}). El comentario de cabecera de cada clase
@@ -108,14 +108,16 @@ for proyecto, etapa in cfg["proyectos"].items():
     if recursos:
         (base / "src/main/resources").mkdir(parents=True)
         for f in recursos:
-            shutil.copy(f, base / "src/main/resources" / f.name)
+            # Los .html, .css y .js de una web van a static/ (los .css a static/css, los .js a static/js)
+            sub = {".html": "static", ".css": "static/css", ".js": "static/js"}.get(f.suffix, "")
+            (base / "src/main/resources" / sub).mkdir(parents=True, exist_ok=True)
+            shutil.copy(f, base / "src/main/resources" / sub / f.name)
     if cp:
         with tempfile.TemporaryDirectory() as tmp:
             fuentes = [str(p) for p in java.glob("*.java")]
             subprocess.run(["javac", "-encoding", "UTF-8", "-parameters", "-cp", cp, "-d", tmp, *fuentes],
                            check=True, capture_output=True)
-            for f in (base / "src/main/resources").glob("*"):
-                shutil.copy(f, tmp)
+            shutil.copytree(base / "src/main/resources", tmp, dirs_exist_ok=True)
             r = subprocess.run(["java", "-Dstdout.encoding=UTF-8", "-Dstderr.encoding=UTF-8",
                                 "-cp", f"{tmp}:{cp}", principal], capture_output=True, text=True)
         lineas = [l for l in (r.stdout + r.stderr).splitlines()

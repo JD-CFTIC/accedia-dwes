@@ -27,8 +27,8 @@ Este documento recoge el plan de las sesiones y los criterios con los que se rep
 | S06 | jue 19 nov | 2 | Usar una clase que no es nuestra como bean | `@Configuration`, `@Bean` | Generador de códigos de pedido | Dados; de reserva, Reloj de fichaje | Impartida |
 | S07 | vie 20 nov | 2 | Cambiar un dato sin recompilar | `@Value` y propiedades | Tienda con IVA configurable | Biblioteca; de reserva, Parking | Impartida |
 | S08 | lun 23 nov | 2 | Juntar todo en una aplicación | Ninguno: repaso integrador de S01 a S07, explicado por el profesor | El torneo (equipos, sorteo con semilla, dos formas de emparejar) | Ninguna: la actividad pasa a S09 | Impartida; resultó demasiado larga |
-| S09 | mié 25 nov | 2 | Aplicar todo lo visto sin que nadie diga qué anotación usar | Ninguno: actividad integradora con la tabla «requisito → concepto» | Las bicicletas (estación con avisos por app y SMS, alquileres independientes) | Integradora; sin reserva: sobran los proyectos con error del zip | Material preparado |
-| S10 | jue 26 nov | 2 | Verla funcionando | Ninguno: cliente en el navegador | El torneo de S08 o las bicicletas de S09 | Ninguna | Propuesta |
+| S09 | mié 25 nov | 2 | Aplicar todo lo visto sin que nadie diga qué anotación usar | Ninguno: actividad integradora con la tabla «requisito → concepto» | Las bicicletas (estación con avisos por app y SMS, alquileres independientes) | Integradora; sin reserva: sobran los proyectos con error del zip | Impartida; no dio tiempo a terminarla, sigue en S10 |
+| S10 | jue 26 nov | 2 | Terminar S09 y verla funcionando | Ninguno: 40 min para terminar la actividad de S09, 10 min de puesta en común y 50 min en que el profesor construye el cliente en el navegador | Las bicicletas de S09 | Ninguna | Material preparado: guía, zip de puntos de control y guion del profesor |
 | S11 | vie 27 nov | 2 | Comprobar qué domina cada uno | Ninguno: simulacro de examen de UD03 | Prueba escrita y práctica | Ninguna | Propuesta |
 
 Las horas suman 22 (6 de S01 a S03 y 16 de S04 a S11): son 4 más que las 18 de la programación, que se compensan con una UD04 más corta antes de Navidad. Las sesiones S04 a S11 son una **propuesta pendiente de confirmar**.
@@ -56,7 +56,7 @@ La nota de la UD03 es un 80 % de examen (parte escrita y práctica) y un 20 % de
 
 ## Ideas para más adelante
 
-- **Cliente en el navegador (S10):** una página con JavaScript que pide datos a la aplicación Spring, con un servidor HTTP que arranca como bean (el que trae Java, sin Spring Boot). Ya está probado con la tienda de pagos; falta decidir si se monta sobre el torneo o sobre las bicicletas.
+- **Cliente en el navegador (S10, últimos 50 minutos):** lo construye el profesor en directo sobre el proyecto de las bicicletas: una página con HTML, CSS y JavaScript en ficheros separados que pide datos a la aplicación Spring, con un servidor HTTP que arranca como bean (el que trae Java, sin Spring Boot). La guía tiene 6 pasos y un zip de 5 puntos de control probados; el guion del profesor reparte los 50 minutos e incluye recortes y tabla de fallos. Sin persistencia (la flota vive en memoria). En S09 no dio tiempo a terminar la actividad (unos casi terminan, otros les falta poco).
 - **Spring Boot:** vista en el navegador con Thymeleaf, y que los alumnos escriban un cliente para la aplicación de un compañero.
 - **Un juego en consola** con las piezas de Spring Core (por ejemplo, una arena donde cada personaje elige su ataque con `@Qualifier`).
 
